@@ -1,0 +1,19 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: consul1
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        #tags: dev
+        #心跳检查间隔
+        health-check-interval: 10s
+        service-name: ${spring.application.name}
+        prefer-ip-address: true
+management:
+  endpoint:
+    health:
+      enabled: true

@@ -1,0 +1,34 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: login-provider
+  profiles: login-provider1
+
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        #tags: dev
+        #心跳检查间隔
+        health-check-interval: 10s
+        service-name: ${spring.application.name}
+        prefer-ip-address: true
+---
+server:
+  port: 8002
+spring:
+  application:
+    name: login-provider
+  profiles: login-provider2
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        #tags: dev
+        #心跳检查间隔
+        health-check-interval: 10s
+        service-name: ${spring.application.name}
+        prefer-ip-address: true

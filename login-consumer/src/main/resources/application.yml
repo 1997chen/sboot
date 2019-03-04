@@ -1,0 +1,10 @@
+login-provider:
+  ribbon:
+    listOfServers: 10.13.45.44:8001,10.13.45.44:8002
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+ribbon:
+  eager-load:
+    #饥饿加载:防止第一次请求加载慢超时。服务启动的时候就初始化好
+    enabled: true
+    clients: login-provider

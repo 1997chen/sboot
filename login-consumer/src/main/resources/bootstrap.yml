@@ -1,0 +1,17 @@
+server:
+  port: 8011
+spring:
+  application:
+    name: login-consumer
+  #profiles: login-consumer
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        #tags: dev
+        #心跳检查间隔
+        health-check-interval: 10s
+        service-name: ${spring.application.name}
+        prefer-ip-address: true
+        instance-id: ${spring.application.name}-${server.port}
